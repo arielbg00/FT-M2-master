@@ -1,6 +1,10 @@
-(function () {
+// (function () {
+  // ES6:
+  // export function EventEmitter () {
+  //   this.subscribers = {};
+  // }
 
-  window.EventEmitter = EventEmitter;
+  // window.EventEmitter = EventEmitter; // ==> exportando
 
   // our EventEmitter constructor function
   function EventEmitter () {
@@ -43,4 +47,5 @@
 
   };
 
-})();
+  module.exports = EventEmitter;
+// })();
