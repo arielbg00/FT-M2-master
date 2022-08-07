@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from "./Card";
+import styles from "../styles/Cards.module.css";
 
 export default function Cards(props) { // distructuring => Cards({cities})
   // props = {cities}
@@ -10,7 +11,7 @@ export default function Cards(props) { // distructuring => Cards({cities})
     return <h1>No hay ciudades</h1>
   }
   return (
-    <div>
+    <div className={styles.container}>
       {
         props.cities && props.cities.map(city => ( // => cities && cities.map...
           <Card

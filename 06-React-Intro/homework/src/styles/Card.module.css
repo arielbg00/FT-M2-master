@@ -1,0 +1,46 @@
+.btn {
+    background-color: red;
+    width: 25px;
+    border-radius: 10px;
+    margin: 5px;
+    align-self: flex-end;
+}
+
+.btnColor {
+    color: white;
+}
+
+.btn:hover {
+    color: red;
+    background-color: white;
+}
+
+.middleDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-content: center;
+    border: 2px solid gray;
+    border-radius: 10px;
+    height: 300px;
+}
+
+.cardDiferent {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-content: center;
+    border: 2px solid grey;
+    border-radius: 10px;
+    height: 300px;
+    background-color: turquoise;
+}
+
+.temperature {
+    margin: 5px;
+}
