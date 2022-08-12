@@ -3,8 +3,11 @@ import React, { useState } from 'react';
 import './App.css';
 import Nav from '../components/Nav.jsx';
 import Cards from '../components/Cards.jsx';
+import { Route } from "react-router-dom";
+import About from "../components/About.jsx";
+import City from "../components/City.jsx";
 
-const apiKey = 'Aqui va la API key que creaste';
+const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
 
 function App() {
   const [cities, setCities] = useState([]);
@@ -13,7 +16,7 @@ function App() {
   }
   function onSearch(ciudad) {
     //Llamado a la API del clima
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${apiKey}&units=metric`)
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined){
@@ -46,16 +49,48 @@ function App() {
   }
   return (
     <div className="App">
-      <Nav onSearch={onSearch}/>
+{/*       <Nav onSearch={onSearch}/>
       <div>
         <Cards
           cities={cities}
           onClose={onClose}
         />
       </div>
-      <hr />
+      <hr /> */}
+      <Route path="/" render={ () => <Nav onSearch={onSearch} /> } />
+      <Route exact path="/" render={ () => <Cards cities={cities} onClose={onClose} /> } />
+      <Route exact path="/about" render={ () => <About /> } />
+      <Route path="/City/:cityId" render={ ({ match }) => <City city={onFilter(match.params.cityId)} /> } />
     </div>
   );
 }
 
 export default App;
+
+/* path="/City/:cityId" ===> 
+1er metodo
+// Apps.js
+<Route path="/City/:cityId" render={ ({ match }) => <City cityId={match.params.cityId} /> } />
+{ match, location, history } destructuring ==> cityId={match.params.cityId} donde .cityId = :cityId
+
+// City.jsx
+function City({ cityId }) { //destructuring
+  return(
+    <div>hi {cityId}</div>
+  )
+}
+
+2do metodo
+// Apps.js
+<Route path="/City/:cityId" render={ () => <City /> } />
+
+// City.jsx
+import {useParams} from "react-router-dom";
+function City() {
+  
+  let params = useParams();
+
+  return(
+    <div>hi { params.cityId }</div>
+  )
+} */
