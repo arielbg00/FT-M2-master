@@ -18,3 +18,5 @@ function App() {
 }
 
 export default App;
+
+// children / render / <Route exact path="/"><Buscador /></Route>
