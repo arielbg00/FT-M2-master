@@ -40,7 +40,7 @@ export class CommentsPost extends React.Component {
     }
 }
 
-/*export function mapStateToProps(state) {
+export function mapStateToProps(state) {
   return {
     commentsPost: state.commentsPost,
   };
@@ -55,4 +55,4 @@ export function mapDispatchToProps(dispatch) {
   export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(CommentsPost );*/
+  )(CommentsPost);

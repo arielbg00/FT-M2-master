@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './UserPosts.css';
+import { getAllUserPosts } from "../../actions/index";
 
 export class UserPosts extends React.Component {
 
@@ -15,5 +16,16 @@ export class UserPosts extends React.Component {
   }
 }
 
+export function mapStateToProps(state) {
+  return {
+    userPosts: state.userPosts
+  };
+}
 
-export default UserPosts;
+export function mapDispatchToProps(dispatch) {
+  return {
+    getAllUserPosts: (id) => dispatch(getAllUserPosts(id))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserPosts);
